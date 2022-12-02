@@ -13,13 +13,16 @@ func main() {
 		aa[i] = a
 	}
 
+	res := make([]int, n+1)
+	res[0] = 0
+	for i := 1; i < n; i++ {
+		res[i] = res[i-1] + aa[i-1]
+	}
+	res[n] = res[n-1] + aa[n-1]
+
 	for i := 0; i < q; i++ {
 		var l, r int
 		fmt.Scan(&l, &r)
-		res := 0
-		for j := l - 1; j < r; j++ {
-			res += aa[j]
-		}
-		fmt.Println(res)
+		fmt.Println(res[r] - res[l-1])
 	}
 }
