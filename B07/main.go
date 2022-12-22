@@ -23,12 +23,9 @@ func main() {
 	}
 
 	res := make([]int, d)
-	for i := 0; i < d; i++ {
-		if i == 0 {
-			res[i] = b[i]
-		} else {
-			res[i] = res[i-1] + b[i]
-		}
+	res[0] = b[0]
+	for i := 1; i < d; i++ {
+		res[i] = res[i-1] + b[i]
 		fmt.Println(res[i])
 	}
 }
